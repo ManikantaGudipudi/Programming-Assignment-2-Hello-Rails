@@ -57,7 +57,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+<<<<<<< HEAD
 
 group :production do
   gem 'pg' # for Heroku deployment
 end
+=======
+>>>>>>> 2041a74ff342e244de03971ffa5191f4052a677c
