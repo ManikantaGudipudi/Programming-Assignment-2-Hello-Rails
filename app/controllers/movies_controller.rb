@@ -57,6 +57,21 @@ class MoviesController < ApplicationController
     end
   end
 
+  # SORT
+  def index
+    # Set the sorting parameters from the session or defaults
+    @sort_column = session[:sort_column] || 'title'
+    @sort_direction = session[:sort_direction] || 'asc'
+
+    # Update session variables when new sorting parameters are provided
+    if params[:sort].present? && params[:direction].present?
+      session[:sort_column] = params[:sort]
+      session[:sort_direction] = params[:direction]
+    end
+
+    @movies = Movie.order("#{@sort_column} #{@sort_direction}")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie

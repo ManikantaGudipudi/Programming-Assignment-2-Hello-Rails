@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ .table-custom {
+    margin: 20px auto;  /* Centering the table */
+    border-collapse: collapse;
+    width: 80%;          /* Set a width for the table */
+    max-width: 1000px;  /* Optional: Set a maximum width */
+}
+
+.table-custom th, .table-custom td {
+    padding: 10px;      /* Adds padding to the table cells */
+    border: 1px solid #ddd; /* Optional: adds a border to the cells */
+    text-align: left;   /* Align text to the left */
+}
+
+.table-custom th {
+    background-color: #f2f2f2; /* Optional: adds a background color to the header */
+}
+th span {
+    margin-left: 5px; /* Space between header text and arrow */
+    font-size: 14px;  /* Adjust arrow size if needed */
+    color: #333;      /* Color of the arrows */
+}
