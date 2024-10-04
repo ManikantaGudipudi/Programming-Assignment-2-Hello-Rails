@@ -18,13 +18,13 @@ more_movies = [
   {:title => 'Nomadland', :rating => 'R',
     :release_date => '19-Feb-2021'},
   {:title => 'CODA', :rating => 'PG-13',
-    :release_date => '13-Aug-2021'}
+    :release_date => '13-Aug-2021'},
   {:title => 'Interstellar', :rating => 'PG-13',
-    :release_date => '26-Oct-2014'}
+    :release_date => '26-Oct-2014'},
   {:title => 'Inception', :rating => 'PG-13',
-    :release_date => '13-Jul-2010'}
+    :release_date => '13-Jul-2010'},
   {:title => 'Iron man', :rating => 'PG-13',
-    :release_date => '02-May-2021'}
+    :release_date => '02-May-2021'},
   {:title => 'Mad Max', :rating => 'R',
     :release_date => '15-May-2021'}
 ]
