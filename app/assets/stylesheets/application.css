@@ -13,7 +13,15 @@
  *= require_tree .
  *= require_self
  */
- .table-custom {
+
+ .header-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically if needed */
+    height: 100px;          /* Adjust height as needed */
+}
+
+.table-custom {
     margin: 20px auto;  /* Centering the table */
     border-collapse: collapse;
     width: 80%;          /* Set a width for the table */
@@ -33,4 +41,31 @@ th span {
     margin-left: 5px; /* Space between header text and arrow */
     font-size: 14px;  /* Adjust arrow size if needed */
     color: #333;      /* Color of the arrows */
+}
+
+.headerSortDown:after,
+.headerSortUp:after {
+  content: ' ';
+  position: relative;
+  left: 2px;
+  border: 5.5px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 13px;
+  border-top-color: rgb(85, 133, 157);
+}
+
+.headerSortUp:after {
+  bottom: 12px;
+  border-bottom-color: rgb(85, 133, 157);
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
+}
+
+.new-movie-link {
+    text-align: center;    /* Ensure text is aligned left */
 }
