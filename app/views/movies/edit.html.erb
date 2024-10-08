@@ -1,12 +1,17 @@
-<% content_for :title, "Editing movie" %>
+<body style="background-image: url('<%= asset_path("background.jpg") %>'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; height: 100%; margin: 0;">
+  <div class="container">
 
-<h1>Editing movie</h1>
+    <% content_for :title, "Editing movie" %>
 
-<%= render "form", movie: @movie %>
+    <h1 class="header-container">Editing movie</h1>
 
-<br>
+    <%= render "form", movie: @movie %>
 
-<div>
-  <%= link_to "Show this movie", @movie %> |
-  <%= link_to "Back to movies", movies_path %>
-</div>
+    <br>
+
+    <div class="link">
+      <%= link_to "Show this movie", @movie %> |
+      <%= link_to "Back to movies", movies_path %>
+    </div>
+  </div>
+</body>

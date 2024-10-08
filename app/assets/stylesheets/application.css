@@ -14,58 +14,111 @@
  *= require_self
  */
 
- .header-container {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Centers vertically if needed */
-    height: 100px;          /* Adjust height as needed */
+ .container{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+  width: 60%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically if needed */
+  height: 100px;          /* Adjust height as needed */
 }
 
 .table-custom {
-    margin: 20px auto;  /* Centering the table */
-    border-collapse: collapse;
-    width: 80%;          /* Set a width for the table */
-    max-width: 1000px;  /* Optional: Set a maximum width */
+  margin: 20px auto;  /* Centering the table */
+  border-collapse: collapse;
+  border: 1px solid #a3a3a3;
+  width: 80%;          /* Set a width for the table */
+  max-width: 1000px;  /* Optional: Set a maximum width */
+  background-color: #ffffff;
 }
 
 .table-custom th, .table-custom td {
-    padding: 10px;      /* Adds padding to the table cells */
-    border: 1px solid #ddd; /* Optional: adds a border to the cells */
-    text-align: left;   /* Align text to the left */
+  padding: 10px;      /* Adds padding to the table cells */
+  border: 1px solid #a3a3a3; /* Adds a border to the table cells */
+  text-align: left;   /* Align text to the left */
+}
+
+/* Table Header Hover Effect */
+.table-custom th:hover {
+  background-color: #d2f0f7; /* Light gray when hovering */
+  color: #000;               /* Make text black on hover */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Table Row Hover Effect */
+.table-custom tr:hover td {
+  background-color: #d2f0f7; /* Lighter gray for cells when hovering over a row */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
 }
 
 .table-custom th {
-    background-color: #f2f2f2; /* Optional: adds a background color to the header */
+  background-color: #ccc; /* Optional: adds a background color to the header */
 }
-th span {
-    margin-left: 5px; /* Space between header text and arrow */
-    font-size: 14px;  /* Adjust arrow size if needed */
-    color: #333;      /* Color of the arrows */
+
+/* Base styles for table headers */
+th {
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;  /* Adjust arrow size if needed */
+  color: #333;      /* Color of the arrows */
+  cursor: pointer; /* Makes the header appear clickable */
+}
+
+/* Base styles for table cells */
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Highlighting the entire column when sorted in ascending order */
+.columnSortAsc {
+  background-color: #d4edda; /* Light green for ascending sort */
+  color: #155724; /* Darker green text */
+}
+
+/* Highlighting the entire column when sorted in descending order */
+.columnSortDesc {
+  background-color: #f8d7da; /* Light red for descending sort */
+  color: #721c24; /* Darker red text */
 }
 
 .headerSortDown:after,
 .headerSortUp:after {
+  display: inline-block;
   content: ' ';
+  border: 5px solid transparent;
   position: relative;
-  left: 2px;
-  border: 5.5px solid transparent;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-top: 5px solid #ccc; /* Default inactive color for down arrow */
+  border-bottom: 5px solid #ccc; /* Default inactive color for up arrow */
+  width: 0;
+  height: 0;
 }
 
 .headerSortDown:after {
-  top: 13px;
   border-top-color: rgb(85, 133, 157);
 }
 
 .headerSortUp:after {
-  bottom: 12px;
   border-bottom-color: rgb(85, 133, 157);
 }
 
-.headerSortDown,
-.headerSortUp {
-  padding-right: 10px;
+/* Hover effect for clickable links */
+.link {
+  text-align: center;    /* Ensure text is aligned left */
+  padding: 5px;
 }
 
-.new-movie-link {
-    text-align: center;    /* Ensure text is aligned left */
+.link a:hover {
+  color: #007bff;   /* Change link color to blue on hover */
+  text-decoration: underline; /* Underline link on hover */
+  transition: color 0.3s ease; /* Smooth color transition */
 }

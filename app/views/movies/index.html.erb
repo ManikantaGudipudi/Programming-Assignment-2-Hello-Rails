@@ -1,48 +1,59 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
-
-<div class="header-container">
-    <h1>Movies</h1>
-</div>
-
-<div class="body-container">
-  <div>
-      <table class="table-custom">
-      <thead>
-        <tr>
-          <th class="<%= @sort_column == 'title' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
-            <%= link_to "Title", movies_path(sort: "title", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          </th>
-          <th class="<%= @sort_column == 'rating' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
-            <%= link_to "Rating", movies_path(sort: "rating", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          </th>
-          <th class="<%= @sort_column == 'release_date' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
-            <%= link_to "Release Date", movies_path(sort: "release_date", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          </th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @movies.each do |movie| %>
-          <tr id="<%= dom_id movie %>">
-            <td><%= movie.title %></td>
-            <td><%= movie.rating %></td>
-            <td><%= movie.release_date.strftime("%Y-%m-%d") if movie.release_date %></td>
-            <td><%= link_to "Show", movie %></td>
+<body style="background-image: url('<%= asset_path("background.jpg") %>'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; height: 100%; margin: 0;">
+  <div class="container">
+    <div class="header-container">
+      <h1>Movies</h1>
+    </div>
+    <div>
+        <table class="table-custom">
+        <thead>
+          <tr>
+            <th class="<%= @sort_column == 'title' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
+              <%= link_to "Title", movies_path(sort: "title", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
+            </th>
+            <th class="<%= @sort_column == 'rating' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
+              <%= link_to "Rating", movies_path(sort: "rating", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
+            </th>
+            <th class="<%= @sort_column == 'release_date' ? (@sort_direction == 'asc' ? 'headerSortDown' : 'headerSortUp') : '' %>">
+              <%= link_to "Release Date", movies_path(sort: "release_date", direction: @sort_direction == 'asc' ? 'desc' : 'asc') %>
+            </th>
+            <th>Actions</th>
           </tr>
-        <% end %>
-      </tbody>
+        </thead>
 
-      <tfoot>
-        <tr>
-          <td colspan="4">Total Movies: <%= @movies.count %></td>
-        </tr>
-      </tfoot>
-    </table>
+        <tbody>
+          <% @movies.each do |movie| %>
+            <tr id="<%= dom_id movie %>">
+              <!-- Title column -->
+              <td class="<%= @sort_column == 'title' ? (@sort_direction == 'asc' ? 'columnSortAsc' : 'columnSortDesc') : '' %>">
+                <%= movie.title %>
+              </td>
+
+              <!-- Rating column -->
+              <td class="<%= @sort_column == 'rating' ? (@sort_direction == 'asc' ? 'columnSortAsc' : 'columnSortDesc') : '' %>">
+                <%= movie.rating %>
+              </td>
+
+              <!-- Release Date column -->
+              <td class="<%= @sort_column == 'release_date' ? (@sort_direction == 'asc' ? 'columnSortAsc' : 'columnSortDesc') : '' %>">
+                <%= movie.release_date.strftime("%Y-%m-%d") if movie.release_date %>
+              </td>
+              <td class="link"><%= link_to "Show", movie %></td>
+            </tr>
+          <% end %>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="4">Total Movies: <%= @movies.count %></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="link">
+      <%= link_to "New movie", new_movie_path %>
+    </div>
   </div>
-  <div class="new-movie-link">
-    <%= link_to "New movie", new_movie_path %>
-  </div>
-</div>
+</body>
