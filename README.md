@@ -22,5 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# URL to the deployed APP
+## URL to the deployed APP
 Heroku Link: https://rotten-potatos-335006924pa-997b93aca21e.herokuapp.com
